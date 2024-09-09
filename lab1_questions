@@ -1,0 +1,131 @@
+//Question 1 Lab1
+class CapitalizeWords {
+    
+    // Method to capitalize the first letter of each word in a string
+    static capitalizeWords(str) {
+        const words = str.split(" "); // Split the string into words
+        let capitalizedStr = "";
+
+        words.forEach(word => {
+            if (word) {
+                // Capitalize the first letter and append the rest of the word
+                capitalizedStr += word[0].toUpperCase() + word.substring(1) + " ";
+            }
+        });
+        return capitalizedStr.trim(); // Return the result 
+    }
+}
+
+// Test case
+const inputString = "hello world, welcome to programming!";
+const result = CapitalizeWords.capitalizeWords(inputString);
+
+console.log(result);
+
+//Question 2 lab1
+// Test case
+const inputString = "hello world, welcome to programming!";
+const result = CapitalizeWords.capitalizeWords(inputString);
+
+function max(a, b, c) {
+    let largest = a;function right(str) {
+    if (str.length >= 3) {
+        let lastThree = str.slice(-3);  // Extract the last three characters
+        let restOfString = str.slice(0, -3);  // Get the rest of the string
+        return lastThree + restOfString;  // Concatenate the last three at the start
+    } else {
+        return str;  // If string length is less than 3, return the original string
+    }
+}
+
+// Test cases
+console.log(right("Python"));     // Output: "honPyt"
+console.log(right("JavaScript")); // Output: "iptJavaScr"
+console.log(right("Hi"));         // Output: "Hi"
+
+
+    if (b > largest) {
+        largest = b;
+    }
+
+    if (c > largest) {
+        largest = c;
+    }
+
+    return largest;
+}
+
+// Test cases
+console.log(max(1, 0, 1));       // Output: 1
+console.log(max(0, -10, -20));   // Output: 0
+console.log(max(1000, 510, 440)); // Output: 1000
+
+//Question 3 lab2
+function right(str) {
+    if (str.length >= 3) {
+        let lastThree = str.slice(-3);  // Extract the last three characters
+        let restOfString = str.slice(0, -3);  // Get the rest of the string
+        return lastThree + restOfString;  // Concatenate the last three at the start
+    } else {
+        return str;  // If string length is less than 3, return the original string
+    }
+}
+
+// Test cases
+console.log(right("Python"));     // Output: "honPyt"
+console.log(right("JavaScript")); // Output: "iptJavaScr"
+console.log(right("Hi"));         // Output: "Hi"
+
+//Question 4 lab2
+
+function angle_Type(angle) {
+    if (angle > 0 && angle < 90) {
+        return "Acute angle";
+    } else if (angle === 90) {
+        return "Right angle";
+    } else if (angle > 90 && angle < 180) {
+        return "Obtuse angle";
+    } else if (angle === 180) {
+        return "Straight angle";
+    } else {
+        return "Invalid angle"; // For any angle outside the 0 to 180 range
+    }
+}
+
+// Test cases
+console.log(angle_Type(47));  // Output: "Acute angle"
+console.log(angle_Type(90));  // Output: "Right angle"
+console.log(angle_Type(145)); // Output: "Obtuse angle"
+console.log(angle_Type(180)); // Output: "Straight angle"
+
+
+//Question 5 lab2
+
+function array_max_sum(arr, k) {
+    if (arr.length < k) {
+        return "Array length must be greater than or equal to k.";
+    }
+
+    let maxSum = 0;
+    let currentSum = 0;
+
+    // Calculate the sum of the first 'k' elements
+    for (let i = 0; i < k; i++) {
+        currentSum += arr[i];
+    }
+    maxSum = currentSum;
+
+    // Slide the window from start to end of the array
+    for (let i = k; i < arr.length; i++) {
+        currentSum = currentSum - arr[i - k] + arr[i];
+        maxSum = Math.max(maxSum, currentSum);
+    }
+
+    return maxSum;
+}
+
+// Test cases
+console.log(array_max_sum([1, 2, 3, 14, 5], 2)); // Output: 19
+console.log(array_max_sum([2, 3, 5, 1, 6], 3));  // Output: 12
+console.log(array_max_sum([9, 3, 5, 1, 7], 2));  // Output: 12
+
